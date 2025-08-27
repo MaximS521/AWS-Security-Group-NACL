@@ -1,0 +1,12 @@
+# local env
+variables.env
+
+# OS/editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.iml
+
+# images metadata (keep repo small)
+*.orig
