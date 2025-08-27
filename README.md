@@ -1,6 +1,6 @@
-# AWS-Security-Group-NACL
+# AWS - Security-Group-NACL
 
-# AWS Project 4 — Security Groups & NACL Challenge (Anonymized)
+# AWS — Security Groups & NACL Challenge (Anonymized)
 
 This project demonstrates layered network security on AWS using **Security Groups** (instance-level, stateful) and **Network ACLs** (subnet-level, stateless).  
 All information here is **anonymized** — no real account IDs, instance IDs, or public IPs appear in this repo.
@@ -97,3 +97,58 @@ Automated sanity checks:
 ```bash
 cp variables.env.template variables.env   # fill placeholders
 ./scripts/validate.sh
+```
+## 📸 Screenshots
+
+All screenshots are available in [`/screenshots`](./screenshots).  
+
+1. **VPC Resource Map** – shows custom VPC + subnets.  
+2. **Subnet Settings** – confirms Auto-assign Public IPv4.  
+3. **Security Groups** – inbound rules for SGA & SGB.  
+4. **Network ACL** – deny HTTP rule in action.  
+5. **EC2 Instances List** – both instances running.  
+6. **Browser Tests** – verifying "It works!" page.  
+7. **Terminal Tests** – curl + ping validation.  
+
+---
+
+## 🔐 Notes & Hardening
+
+- Restrict SSH to your IP (not `0.0.0.0/0`) in real deployments.  
+- Place web servers behind an **Application Load Balancer**.  
+- Use **private subnets + NAT** for app tiers; log with VPC Flow Logs.  
+
+---
+
+## 🧪 Troubleshooting
+
+1. **No page load?**
+   - Security Group inbound rules?  
+   - Subnet has Auto-assign public IPv4?  
+   - Route table to IGW?  
+
+2. **NACL deny not working?**
+   - Confirm your current public IP (`curl ifconfig.me`).  
+   - Match against NACL rules.  
+
+3. **403 error from curl?**
+   - Expected if blocked by NACL/SG depending on source.  
+
+---
+
+## 📝 Environment Variables
+
+File: `config/variables.env.template`
+
+```bash
+# Replace placeholders with your test values.
+# RFC 5737 documentation IPs used here for examples only.
+
+HOME_IP=203.0.113.45
+SGA_PUBLIC_IP=203.0.113.10
+SGB_PUBLIC_IP=203.0.113.11
+SGA_PRIVATE_IP=10.0.1.80
+SGB_PRIVATE_IP=10.0.2.177
+```
+
+
