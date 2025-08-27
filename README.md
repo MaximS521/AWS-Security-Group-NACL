@@ -1,4 +1,4 @@
-# AWS - Security-Group-NACL
+# AWS - Security Groups & NACL
 
 # AWS — Security Groups & NACL Challenge (Anonymized)
 
