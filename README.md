@@ -1,6 +1,6 @@
 # AWS - Security Groups & NACL
 
-# AWS — Security Groups & NACL Challenge (Anonymized)
+# AWS — Security Groups & NACL Challenge
 
 This project demonstrates layered network security on AWS using **Security Groups** (instance-level, stateful) and **Network ACLs** (subnet-level, stateless).  
 All information here is **anonymized** — no real account IDs, instance IDs, or public IPs appear in this repo.
